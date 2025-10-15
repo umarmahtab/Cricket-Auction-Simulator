@@ -80,25 +80,15 @@ Customize your team names and begin bidding to build the ultimate T20 franchise.
 
 ## 📸 Screenshots
 
-Add your screenshots here to give users a preview of the simulator in action.
-
-### 🏏 Auction Screen
-
-![Auction Screen](./assets/preview-auction.png)
-
-### 📊 Team Dashboard
-
-![Team Dashboard](./assets/team-dashboard.png)
-
-### 📈 Live Stats View (Optional)
-
-![Live Stats](./assets/live-stats.png)
-
-Or show them side by side:
-
 <p align="center">
-  <img src="./assets/preview-auction.png" width="45%" />
-  <img src="./assets/team-dashboard.png" width="45%" />
+  <img src="./assets/TeamScreen.png" width="45%" />
+  <img src="./assets/RetentionPhase.png" width="45%" />
+  <img src="./assets/UpcomingPool.png" width="45%" />
+  <img src="./assets/MainDashboard.png" width="45%" />
+  <img src="./assets/Bid.png" width="45%" />
+  <img src="./assets/AuctionLog.png" width="45%" />
+  <img src="./assets/RemainingPlayers.png" width="45%" />
+  <img src="./assets/UnsoldList.png" width="45%" />
 </p>
 
 ---
