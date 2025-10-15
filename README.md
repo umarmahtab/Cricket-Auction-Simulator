@@ -125,6 +125,6 @@ If you'd like to add features or fix bugs:
 
 ## 🏆 Credits
 
-Created with ❤️ by [Your Name](https://github.com/umarmahtab) — inspired by the passion and thrill of cricket.
+Created with ❤️ by [Umar Mahtab](https://github.com/umarmahtab) — inspired by the passion and thrill of cricket.
 
 ---
