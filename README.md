@@ -7,6 +7,21 @@ Manage your franchise, outbid rivals, and craft a championship-winning squad fro
 
 ---
 
+## 📸 Screenshots
+
+<p align="center">
+  <img src="./assets/TeamScreen.png" width="45%" />
+  <img src="./assets/RetentionPhase.png" width="45%" />
+  <img src="./assets/UpcomingPool.png" width="45%" />
+  <img src="./assets/MainDashboard.png" width="45%" />
+  <img src="./assets/Bid.png" width="45%" />
+  <img src="./assets/AuctionLog.png" width="45%" />
+  <img src="./assets/RemainingPlayers.png" width="45%" />
+  <img src="./assets/UnsoldList.png" width="45%" />
+</p>
+
+
+---
 ## ✨ Key Features
 
 🎯 **Team Customization**
@@ -75,21 +90,6 @@ Customize your team names and begin bidding to build the ultimate T20 franchise.
 * **Tailwind CSS** – Modern, responsive, utility-first design
 * **Vanilla JavaScript (ES6+)** – Application logic, state management, and interactivity
 * **Tone.js** – Audio library for immersive sound effects and feedback
-
----
-
-## 📸 Screenshots
-
-<p align="center">
-  <img src="./assets/TeamScreen.png" width="45%" />
-  <img src="./assets/RetentionPhase.png" width="45%" />
-  <img src="./assets/UpcomingPool.png" width="45%" />
-  <img src="./assets/MainDashboard.png" width="45%" />
-  <img src="./assets/Bid.png" width="45%" />
-  <img src="./assets/AuctionLog.png" width="45%" />
-  <img src="./assets/RemainingPlayers.png" width="45%" />
-  <img src="./assets/UnsoldList.png" width="45%" />
-</p>
 
 ---
 
