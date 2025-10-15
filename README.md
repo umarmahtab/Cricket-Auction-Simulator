@@ -7,6 +7,21 @@ Manage your franchise, outbid rivals, and craft a championship-winning squad fro
 
 ---
 
+## 🔮 Roadmap / Future Enhancements
+
+Planned improvements and features in upcoming versions:
+
+* [ ] **Player Roles & Squad Rules** (e.g., overseas limits, minimum wicketkeepers)
+* [ ] **Pre-Auction Mock Draft** mode for strategy planning
+* [ ] **More Player To Be Added ( 200+ Currently)
+* [ ] **Layout Change
+* [ ] **Animation UI
+* [ ] **Custom Team Logos & Colors** for personalization
+* [ ] **Multi Team Support (Currently only 3 Teams Supported 
+
+
+---
+
 ## 📸 Screenshots
 
 <p align="center">
@@ -93,16 +108,6 @@ Customize your team names and begin bidding to build the ultimate T20 franchise.
 
 ---
 
-## 🔮 Roadmap / Future Enhancements
-
-Planned improvements and features in upcoming versions:
-
-* [ ] **Player Roles & Squad Rules** (e.g., overseas limits, minimum wicketkeepers)
-* [ ] **Pre-Auction Mock Draft** mode for strategy planning
-* [ ] **Custom Team Logos & Colors** for personalization
-* [ ] **Firebase Integration** for real-time, multi-user online auctions
-
----
 
 ## 🧾 License
 
