@@ -33,10 +33,10 @@ Go through every phase — from **retention** to **accelerated rounds** for unso
 🗂️ **Comprehensive Logs**
 Access detailed logs of sold, remaining, and unsold players anytime.
 
-⇄️ **Dynamic Team Management**
+↔️ **Dynamic Team Management**
 Release players to free up funds and roster space during the auction.
 
-🖾 **Save & Load Progress**
+💾 **Save & Load Progress**
 Pause your auction anytime and resume exactly where you left off.
 
 ---
@@ -78,6 +78,31 @@ Customize your team names and begin bidding to build the ultimate T20 franchise.
 
 ---
 
+## 📸 Screenshots
+
+Add your screenshots here to give users a preview of the simulator in action.
+
+### 🏏 Auction Screen
+
+![Auction Screen](./assets/preview-auction.png)
+
+### 📊 Team Dashboard
+
+![Team Dashboard](./assets/team-dashboard.png)
+
+### 📈 Live Stats View (Optional)
+
+![Live Stats](./assets/live-stats.png)
+
+Or show them side by side:
+
+<p align="center">
+  <img src="./assets/preview-auction.png" width="45%" />
+  <img src="./assets/team-dashboard.png" width="45%" />
+</p>
+
+---
+
 ## 🔮 Roadmap / Future Enhancements
 
 Planned improvements and features in upcoming versions:
@@ -86,17 +111,6 @@ Planned improvements and features in upcoming versions:
 * [ ] **Pre-Auction Mock Draft** mode for strategy planning
 * [ ] **Custom Team Logos & Colors** for personalization
 * [ ] **Firebase Integration** for real-time, multi-user online auctions
-
----
-
-## 📸 Screenshots (Optional)
-
-> *(You can add preview images of your simulator here to make the README more engaging)*
-> Example:
-
-```
-![Auction Screen Preview](./assets/preview-auction.png)
-```
 
 ---
 
@@ -121,6 +135,6 @@ If you'd like to add features or fix bugs:
 
 ## 🏆 Credits
 
-Created with ❤️ by [Your Name](https://github.com/your-username) — inspired by the passion and thrill of T20 cricket auctions.
+Created with ❤️ by [Your Name](https://github.com/umarmahtab) — inspired by the passion and thrill of cricket.
 
 ---
