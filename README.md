@@ -13,11 +13,11 @@ Planned improvements and features in upcoming versions:
 
 * [ ] **Player Roles & Squad Rules** (e.g., overseas limits, minimum wicketkeepers)
 * [ ] **Pre-Auction Mock Draft** mode for strategy planning
-* [ ] **More Player To Be Added ( 200+ Currently)
-* [ ] **Layout Change
-* [ ] **Animation UI
-* [ ] **Custom Team Logos & Colors** for personalization
-* [ ] **Multi Team Support (Currently only 3 Teams Supported 
+* [ ] **More Player To Be Added ( 200+ Currently)**
+* [ ] **Layout Change**
+* [ ] **Animation UI**
+* [ ] **Custom Team Logos & Colors** for personalization**
+* [ ] **Multi Team Support (Currently only 3 Teams Supported**
 
 
 ---
