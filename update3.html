@@ -14,9 +14,9 @@
         }
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(-45deg, #000000, #000000, #101042, #1f2937);
+            background: linear-gradient(-45deg, #0d0724, #19103b, #2d3748, #111827);
             background-size: 400% 400%;
-            animation: gradientBG 10s ease infinite;
+            animation: gradientBG 15s ease infinite;
         }
         #app {
             position: relative;
@@ -43,18 +43,18 @@
             stroke: #374151; /* gray-700 */
         }
         .timer-ring-fg {
-            stroke: #34d399; /* emerald-400 */
+            stroke: #c026d3; /* fuchsia-500 */
         }
         .team-card {
             transition: all 0.3s ease-in-out;
         }
         .highest-bidder-team-card {
             transform: scale(1.02);
-            box-shadow: 0 0 20px rgba(52, 211, 153, 0.7);
+            box-shadow: 0 0 25px rgba(192, 38, 211, 0.7);
         }
         /* Glassmorphism Effect */
         .glass-effect {
-            background: rgba(31, 41, 55, 0.55); /* bg-gray-800 with opacity */
+            background: rgba(45, 35, 80, 0.55); /* Purple-tinted glass */
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -65,105 +65,94 @@
             backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
         }
+        .player-selectable.selected,
         .player-retainable.selected {
-            background-color: #059669; /* emerald-600 */
-            border-color: #34d399; /* emerald-400 */
+            background-color: #a21caf; /* fuchsia-600 */
+            border-color: #c026d3; /* fuchsia-500 */
         }
     </style>
 </head>
 <body class="bg-gray-900 text-white min-h-screen p-4 flex items-center justify-center">
     <div id="app" class="w-full max-w-7xl mx-auto">
 
-        <!-- Setup Screen -->
         <div id="setupScreen" class="text-center glass-effect p-8 rounded-2xl shadow-lg">
-            <h1 class="text-4xl font-bold mb-2 text-emerald-400">Assemble Your Franchises</h1>
+            <h1 class="text-4xl font-bold mb-2 text-fuchsia-400">Assemble Your Franchises</h1>
             <p class="text-gray-300 mb-10">Customize the names for the three competing teams below.</p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
-                <!-- Team 1 Card -->
-                <div class="bg-gray-700/50 p-6 rounded-xl border border-gray-600/50 transition duration-300 hover:border-blue-500 hover:shadow-lg">
+                <div class="bg-gray-700/50 p-6 rounded-xl border border-gray-600/50 transition duration-300 hover:border-cyan-500 hover:shadow-lg">
                     <div class="flex items-center justify-center mb-4">
-                        <svg class="w-8 h-8 text-blue-400 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <svg class="w-8 h-8 text-cyan-400 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345h5.518a.562.562 0 01.32.959l-4.418 3.24a.563.563 0 00-.192.588l1.681 5.347a.562.562 0 01-.812.622l-4.418-3.24a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.812-.622l1.681-5.347a.563.563 0 00-.192-.588l-4.418-3.24a.562.562 0 01.32-.959h5.518a.563.563 0 00.475-.345L11.48 3.5z" />
                         </svg>
                         <h2 class="text-xl font-semibold text-white">Team 1</h2>
                     </div>
-                    <input id="team1Name" type="text" class="w-full bg-gray-900/70 text-white text-center p-3 rounded-lg border-2 border-gray-600 focus:border-blue-500 focus:ring-0 outline-none transition" value="Umar United">
+                    <input id="team1Name" type="text" class="w-full bg-gray-900/70 text-white text-center p-3 rounded-lg border-2 border-gray-600 focus:border-cyan-500 focus:ring-0 outline-none transition" value="Umar United">
                 </div>
-                <!-- Team 2 Card -->
-                <div class="bg-gray-700/50 p-6 rounded-xl border border-gray-600/50 transition duration-300 hover:border-red-500 hover:shadow-lg">
+                <div class="bg-gray-700/50 p-6 rounded-xl border border-gray-600/50 transition duration-300 hover:border-orange-500 hover:shadow-lg">
                     <div class="flex items-center justify-center mb-4">
-                        <svg class="w-8 h-8 text-red-400 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <svg class="w-8 h-8 text-orange-400 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
                         </svg>
                         <h2 class="text-xl font-semibold text-white">Team 2</h2>
                     </div>
-                    <input id="team2Name" type="text" class="w-full bg-gray-900/70 text-white text-center p-3 rounded-lg border-2 border-gray-600 focus:border-red-500 focus:ring-0 outline-none transition" value="Abhinav Reds">
+                    <input id="team2Name" type="text" class="w-full bg-gray-900/70 text-white text-center p-3 rounded-lg border-2 border-gray-600 focus:border-orange-500 focus:ring-0 outline-none transition" value="Abhinav Reds">
                 </div>
-                <!-- Team 3 Card -->
-                <div class="bg-gray-700/50 p-6 rounded-xl border border-gray-600/50 transition duration-300 hover:border-yellow-500 hover:shadow-lg">
+                <div class="bg-gray-700/50 p-6 rounded-xl border border-gray-600/50 transition duration-300 hover:border-lime-500 hover:shadow-lg">
                     <div class="flex items-center justify-center mb-4">
-                        <svg class="w-8 h-8 text-yellow-400 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <svg class="w-8 h-8 text-lime-400 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
                         </svg>
                         <h2 class="text-xl font-semibold text-white">Team 3</h2>
                     </div>
-                    <input id="team3Name" type="text" class="w-full bg-gray-900/70 text-white text-center p-3 rounded-lg border-2 border-gray-600 focus:border-yellow-500 focus:ring-0 outline-none transition" value="Jatin Knights">
+                    <input id="team3Name" type="text" class="w-full bg-gray-900/70 text-white text-center p-3 rounded-lg border-2 border-gray-600 focus:border-lime-500 focus:ring-0 outline-none transition" value="Jatin Knights">
                 </div>
             </div>
-            <button id="startAuctionBtn" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-12 rounded-lg text-xl transition duration-300 transform hover:scale-105 shadow-lg">Proceed to Retentions</button>
+            <button id="startAuctionBtn" class="bg-fuchsia-500 hover:bg-fuchsia-600 text-white font-bold py-4 px-12 rounded-lg text-xl transition duration-300 transform hover:scale-105 shadow-lg">Start Squad Selection</button>
         </div>
 
-        <!-- Auction Screen -->
         <div id="auctionScreen" class="hidden">
-            <!-- Menu Bar -->
             <div class="w-full glass-effect p-4 rounded-2xl shadow-lg mb-8 flex justify-center items-center gap-x-4">
-                <h1 class="text-2xl font-bold text-emerald-400 hidden md:block">Auction Central</h1>
+                <h1 class="text-2xl font-bold text-fuchsia-400 hidden md:block">Auction Central</h1>
                 <div class="h-8 w-px bg-gray-600 hidden md:block"></div>
                 <button id="showLogBtn" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition">Auction Log</button>
-                <button id="showRemainingBtn" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition">Remaining</button>
-                <button id="showUnsoldBtn" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition">Unsold Pool</button>
             </div>
 
-            <!-- Main Bidding Panel -->
             <div class="glass-effect p-6 rounded-2xl shadow-lg mb-8">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
-                    <!-- Player Info -->
                     <div id="playerCard" class="text-center">
-                        <h2 class="text-xl font-bold text-center mb-4 text-emerald-400">Player on Auction</h2>
+                        <h2 class="text-xl font-bold text-center mb-4 text-fuchsia-400">Player on Auction</h2>
                         <div class="p-6 bg-gray-700/50 rounded-2xl">
-                            <div class="text-sm bg-emerald-500 text-white font-semibold uppercase tracking-wider px-3 py-1 rounded-full inline-block mb-3" id="playerCategory">Category</div>
+                            <div class="text-sm bg-fuchsia-500 text-white font-semibold uppercase tracking-wider px-3 py-1 rounded-full inline-block mb-3" id="playerCategory">Category</div>
                             <h3 class="text-4xl font-extrabold" id="playerName">Player Name</h3>
                             <p class="text-lg text-gray-300 mt-2">Base Price: <span class="font-bold text-white" id="basePrice">₹0 L</span></p>
                         </div>
                     </div>
-                    <!-- Timer & Bid Info -->
                     <div class="flex flex-col items-center">
                          <div class="flex gap-4 w-full mb-2 items-center justify-center">
-                            <div id="timerContainer" class="flex justify-center">
+                             <div id="timerContainer" class="flex justify-center">
                                  <div class="timer-ring-container">
-                                    <svg class="w-full h-full">
-                                        <circle class="timer-ring timer-ring-bg" r="56" cx="60" cy="60"></circle>
-                                        <circle id="timerRing" class="timer-ring timer-ring-fg" r="56" cx="60" cy="60"></circle>
-                                    </svg>
-                                    <div id="timer" class="absolute inset-0 flex items-center justify-center text-4xl font-bold">60</div>
-                                </div>
-                            </div>
-                            <div class="text-center">
-                                <p class="text-xl text-gray-300">Current Bid</p>
-                                <p id="currentBid" class="text-5xl font-bold text-emerald-400">₹0 L</p>
-                                <p class="text-md text-gray-400 mt-1">Highest Bidder: <span id="highestBidder" class="font-semibold text-white">None</span></p>
-                            </div>
+                                     <svg class="w-full h-full">
+                                         <circle class="timer-ring timer-ring-bg" r="56" cx="60" cy="60"></circle>
+                                         <circle id="timerRing" class="timer-ring timer-ring-fg" r="56" cx="60" cy="60"></circle>
+                                     </svg>
+                                     <div id="timer" class="absolute inset-0 flex items-center justify-center text-4xl font-bold">60</div>
+                                 </div>
+                             </div>
+                             <div class="text-center">
+                                 <p class="text-xl text-gray-300">Current Bid</p>
+                                 <p id="currentBid" class="text-5xl font-bold text-fuchsia-400">₹0 L</p>
+                                 <p class="text-md text-gray-400 mt-1">Highest Bidder: <span id="highestBidder" class="font-semibold text-white">None</span></p>
+                             </div>
                         </div>
                     </div>
-                     <!-- Bidding Actions -->
-                    <div class="w-full">
+                     <div class="w-full">
                         <div class="grid grid-cols-3 gap-3 mb-4">
-                            <button id="bidTeam1" data-team="0" class="bid-btn bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg text-lg transition duration-300 flex flex-col items-center justify-center h-20 leading-tight"></button>
-                            <button id="bidTeam2" data-team="1" class="bid-btn bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-lg text-lg transition duration-300 flex flex-col items-center justify-center h-20 leading-tight"></button>
-                            <button id="bidTeam3" data-team="2" class="bid-btn bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 rounded-lg text-lg transition duration-300 flex flex-col items-center justify-center h-20 leading-tight"></button>
+                            <button id="bidTeam1" data-team="0" class="bid-btn bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3 rounded-lg text-lg transition duration-300 flex flex-col items-center justify-center h-20 leading-tight"></button>
+                            <button id="bidTeam2" data-team="1" class="bid-btn bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 rounded-lg text-lg transition duration-300 flex flex-col items-center justify-center h-20 leading-tight"></button>
+                            <button id="bidTeam3" data-team="2" class="bid-btn bg-lime-500 hover:bg-lime-600 text-white font-bold py-3 rounded-lg text-lg transition duration-300 flex flex-col items-center justify-center h-20 leading-tight"></button>
                         </div>
                         <div class="grid grid-cols-2 gap-3">
-                           <button id="manualSellBtn" class="hidden w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-lg text-lg transition duration-300">Sell Player</button>
+                           <button id="manualSellBtn" class="hidden w-full bg-fuchsia-600 hover:bg-fuchsia-700 text-white font-bold py-3 px-6 rounded-lg text-lg transition duration-300">Sell Player</button>
                            <button id="unsoldBtn" class="hidden w-full bg-gray-500 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg text-lg transition duration-300 col-span-2">Mark Unsold</button>
                            <button id="nextPlayerBtn" class="hidden w-full bg-gray-600 hover:bg-gray-500 text-white font-bold py-3 px-6 rounded-lg text-lg transition duration-300 col-span-2">Next Player</button>
                         </div>
@@ -172,7 +161,6 @@
                  <div id="messageBox" class="w-full text-center h-10 mt-4 flex items-center justify-center"></div>
             </div>
 
-            <!-- Teams Display -->
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <div id="team1Display" class="team-card glass-effect p-6 rounded-2xl shadow-lg"></div>
                 <div id="team2Display" class="team-card glass-effect p-6 rounded-2xl shadow-lg"></div>
@@ -180,54 +168,69 @@
             </div>
         </div>
         
-        <!-- Auction End Screen -->
         <div id="endScreen" class="hidden text-center glass-effect p-8 rounded-2xl shadow-lg">
              <div id="finalSquads" class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left"></div>
         </div>
     </div>
 
-    <!-- Modals -->
-    <div id="retentionModal" class="hidden fixed inset-0 z-50 overflow-y-auto modal-backdrop flex items-center justify-center p-4">
-        <div class="glass-effect w-full max-w-5xl p-8 rounded-2xl shadow-2xl border-2 border-emerald-500 transform transition-all duration-300 scale-95 opacity-0" id="retentionModalContent">
-            <h2 id="retentionModalTitle" class="text-3xl font-bold text-center mb-2 text-emerald-400">Retention Phase</h2>
-            <p class="text-center text-gray-300 mb-4">Select up to 5 players to retain.</p>
+    <!-- NEW: Previous Squad Selection Modal -->
+    <div id="previousSquadModal" class="hidden fixed inset-0 z-50 overflow-y-auto modal-backdrop flex items-center justify-center p-4">
+        <div class="glass-effect w-full max-w-5xl p-8 rounded-2xl shadow-2xl border-2 border-fuchsia-500 transform transition-all duration-300 scale-95 opacity-0" id="previousSquadModalContent">
+            <h2 id="previousSquadModalTitle" class="text-3xl font-bold text-center mb-2 text-fuchsia-400">Select Your Previous Squad</h2>
+            <p class="text-center text-gray-300 mb-4">Select players who were part of your team. These will be eligible for retention and RTM.</p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- All Players Column -->
                 <div class="md:col-span-2">
-                     <input type="text" id="retentionSearch" class="w-full bg-gray-900/70 text-white p-3 mb-4 rounded-lg border-2 border-gray-600 focus:border-emerald-500 focus:ring-0 outline-none transition" placeholder="Search for a player...">
-                    <div id="retentionPlayerList" class="grid grid-cols-2 md:grid-cols-3 gap-3 h-96 overflow-y-auto pr-2"></div>
+                     <input type="text" id="previousSquadSearch" class="w-full bg-gray-900/70 text-white p-3 mb-4 rounded-lg border-2 border-gray-600 focus:border-fuchsia-500 focus:ring-0 outline-none transition" placeholder="Search for a player...">
+                    <div id="previousSquadPlayerList" class="grid grid-cols-2 md:grid-cols-3 gap-3 h-96 overflow-y-auto pr-2"></div>
                 </div>
-                <!-- Selected Players Column -->
                 <div>
-                    <h3 class="text-xl font-bold text-center mb-4 text-white">Your Retentions</h3>
-                    <div id="selectedRetentionsList" class="space-y-3 h-96 overflow-y-auto pr-2">
-                        <!-- Selected players will be dynamically added here -->
-                    </div>
+                    <h3 class="text-xl font-bold text-center mb-4 text-white">Your Previous Squad</h3>
+                    <div id="selectedPreviousSquadList" class="space-y-3 h-96 overflow-y-auto pr-2"></div>
                 </div>
             </div>
             <div class="text-center mt-6">
-                <button id="confirmRetentionsBtn" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105">Confirm Selections</button>
+                <button id="confirmPreviousSquadBtn" class="bg-fuchsia-500 hover:bg-fuchsia-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105">Confirm Selections</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="retentionModal" class="hidden fixed inset-0 z-50 overflow-y-auto modal-backdrop flex items-center justify-center p-4">
+        <div class="glass-effect w-full max-w-5xl p-8 rounded-2xl shadow-2xl border-2 border-fuchsia-500 transform transition-all duration-300 scale-95 opacity-0" id="retentionModalContent">
+            <h2 id="retentionModalTitle" class="text-3xl font-bold text-center mb-2 text-fuchsia-400">Retention Phase</h2>
+            <p class="text-center text-gray-300 mb-4">Select up to 5 players to retain from your Previous Squad.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="md:col-span-2">
+                     <input type="text" id="retentionSearch" class="w-full bg-gray-900/70 text-white p-3 mb-4 rounded-lg border-2 border-gray-600 focus:border-fuchsia-500 focus:ring-0 outline-none transition" placeholder="Search for a player in your pool...">
+                    <div id="retentionPlayerList" class="grid grid-cols-2 md:grid-cols-3 gap-3 h-96 overflow-y-auto pr-2"></div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-center mb-4 text-white">Your Retentions</h3>
+                    <div id="selectedRetentionsList" class="space-y-3 h-96 overflow-y-auto pr-2"></div>
+                </div>
+            </div>
+            <div class="text-center mt-6">
+                <button id="confirmRetentionsBtn" class="bg-fuchsia-500 hover:bg-fuchsia-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105">Confirm Retentions</button>
             </div>
         </div>
     </div>
 
 
     <div id="poolModal" class="hidden fixed inset-0 z-50 overflow-y-auto modal-backdrop flex items-center justify-center p-4">
-        <div class="glass-effect w-full max-w-2xl p-8 rounded-2xl shadow-2xl border-2 border-emerald-500 transform transition-all duration-300 scale-95 opacity-0" id="poolModalContent">
-            <h2 id="poolModalTitle" class="text-3xl font-bold text-center mb-4 text-emerald-400">Upcoming Player Pool</h2>
+        <div class="glass-effect w-full max-w-2xl p-8 rounded-2xl shadow-2xl border-2 border-fuchsia-500 transform transition-all duration-300 scale-95 opacity-0" id="poolModalContent">
+            <h2 id="poolModalTitle" class="text-3xl font-bold text-center mb-4 text-fuchsia-400">Upcoming Player Pool</h2>
             <div class="h-px bg-gray-700 my-6"></div>
             <div id="poolModalPlayerList" class="grid grid-cols-2 md:grid-cols-3 gap-4 h-64 overflow-y-auto pr-2"></div>
             <div class="h-px bg-gray-700 my-6"></div>
             <div class="text-center mt-6 flex justify-center gap-4">
-                <button id="startUnsoldRoundBtn" class="hidden bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105">Auction Unsold</button>
-                <button id="startRoundBtn" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105">Start Round</button>
+                <button id="startUnsoldRoundBtn" class="hidden bg-lime-600 hover:bg-lime-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105">Auction Unsold</button>
+                <button id="startRoundBtn" class="bg-fuchsia-500 hover:bg-fuchsia-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105">Start Round</button>
             </div>
         </div>
     </div>
     
     <div id="logModal" class="hidden fixed inset-0 z-50 overflow-y-auto modal-backdrop flex items-center justify-center p-4">
-         <div class="glass-effect w-full max-w-4xl p-8 rounded-2xl shadow-2xl border-2 border-emerald-500 transform transition-all duration-300 scale-95 opacity-0" id="logModalContent">
-            <h2 class="text-3xl font-bold text-center mb-4 text-emerald-400">Auction Log</h2>
+         <div class="glass-effect w-full max-w-4xl p-8 rounded-2xl shadow-2xl border-2 border-fuchsia-500 transform transition-all duration-300 scale-95 opacity-0" id="logModalContent">
+            <h2 class="text-3xl font-bold text-center mb-4 text-fuchsia-400">Auction Log</h2>
             <div class="h-96 overflow-y-auto mt-6">
                 <table class="w-full text-sm text-left text-gray-400">
                     <thead class="text-xs text-gray-300 uppercase bg-gray-700/50 sticky top-0">
@@ -246,49 +249,48 @@
             </div>
         </div>
     </div>
-    
-    <div id="remainingModal" class="hidden fixed inset-0 z-50 overflow-y-auto modal-backdrop flex items-center justify-center p-4">
-         <div class="glass-effect w-full max-w-4xl p-8 rounded-2xl shadow-2xl border-2 border-emerald-500 transform transition-all duration-300 scale-95 opacity-0" id="remainingModalContent">
-             <h2 class="text-3xl font-bold text-center mb-4 text-emerald-400">Remaining Players</h2>
-             <div id="remainingPlayersList" class="h-96 overflow-y-auto mt-6 space-y-4"></div>
-             <div class="text-center mt-6">
-                <button id="closeRemainingBtn" class="bg-gray-600 hover:bg-gray-500 text-white font-bold py-2 px-6 rounded-lg transition">Close</button>
-            </div>
-         </div>
-    </div>
 
-    <div id="unsoldModal" class="hidden fixed inset-0 z-50 overflow-y-auto modal-backdrop flex items-center justify-center p-4">
-         <div class="glass-effect w-full max-w-4xl p-8 rounded-2xl shadow-2xl border-2 border-yellow-500 transform transition-all duration-300 scale-95 opacity-0" id="unsoldModalContent">
-             <h2 class="text-3xl font-bold text-center mb-4 text-yellow-400">Unsold Players Pool</h2>
-             <div id="unsoldPlayersList" class="h-96 overflow-y-auto mt-6 space-y-4"></div>
-             <div class="text-center mt-6">
-                <button id="closeUnsoldBtn" class="bg-gray-600 hover:bg-gray-500 text-white font-bold py-2 px-6 rounded-lg transition">Close</button>
+    <div id="rtmModal" class="hidden fixed inset-0 z-50 overflow-y-auto modal-backdrop flex items-center justify-center p-4">
+        <div class="glass-effect w-full max-w-lg p-8 rounded-2xl shadow-2xl border-2 border-yellow-500 transform transition-all duration-300 scale-95 opacity-0" id="rtmModalContent">
+            <h2 class="text-3xl font-bold text-center mb-4 text-yellow-400">Right to Match</h2>
+            <div id="rtmTimer" class="text-6xl font-bold text-yellow-300 text-center my-4">5</div>
+            <p id="rtmModalText" class="text-center text-lg text-gray-200 my-6"></p>
+            <div class="flex justify-center gap-6 mt-6">
+                <button id="rtmYesBtn" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-10 rounded-lg text-lg transition duration-300">Use RTM</button>
+                <button id="rtmNoBtn" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-10 rounded-lg text-lg transition duration-300">Decline</button>
             </div>
-         </div>
+        </div>
     </div>
 
 <script>
+const MAX_PLAYERS_PER_TEAM = 26;
+
 const appState = {
     playerPools: {},
     poolOrder: [],
     teams: [
-        { name: "", squad: [], purse: 10000 },
-        { name: "", squad: [], purse: 10000 },
-        { name: "", squad: [], purse: 10000 },
+        { name: "", squad: [], purse: 12000, rtm: 2, previousSquad: [] },
+        { name: "", squad: [], purse: 12000, rtm: 2, previousSquad: [] },
+        { name: "", squad: [], purse: 12000, rtm: 2, previousSquad: [] },
     ],
     currentPoolIndex: -1,
     currentPlayerIndex: -1,
     currentBid: 0,
     highestBidder: null,
     timerId: null,
-    timeLeft: 40,
+    timeLeft: 60,
     auctionStarted: false,
     auctionEnded: false,
     isUnsoldRound: false,
     currentUnsoldRoundPlayers: [],
-    // Retention state
+    // State for pre-auction phases
+    currentPreviousSquadTeamIndex: 0,
+    tempPreviousSquadPlayers: [],
     currentRetentionTeamIndex: 0,
     tempRetainedPlayers: [],
+    rtmContext: null,
+    rtmTimerId: null,
+    rtmTimeLeft: 5,
 };
 
 
@@ -316,8 +318,6 @@ const soldPlayersLog = document.getElementById('soldPlayersLog');
 
 // Menu Buttons
 const showLogBtn = document.getElementById('showLogBtn');
-const showRemainingBtn = document.getElementById('showRemainingBtn');
-const showUnsoldBtn = document.getElementById('showUnsoldBtn');
 
 // Modal Elements
 const poolModal = document.getElementById('poolModal');
@@ -331,15 +331,14 @@ const logModal = document.getElementById('logModal');
 const logModalContent = document.getElementById('logModalContent');
 const closeLogBtn = document.getElementById('closeLogBtn');
 
-const remainingModal = document.getElementById('remainingModal');
-const remainingModalContent = document.getElementById('remainingModalContent');
-const remainingPlayersList = document.getElementById('remainingPlayersList');
-const closeRemainingBtn = document.getElementById('closeRemainingBtn');
-
-const unsoldModal = document.getElementById('unsoldModal');
-const unsoldModalContent = document.getElementById('unsoldModalContent');
-const unsoldPlayersList = document.getElementById('unsoldPlayersList');
-const closeUnsoldBtn = document.getElementById('closeUnsoldBtn');
+// Previous Squad Modal Elements
+const previousSquadModal = document.getElementById('previousSquadModal');
+const previousSquadModalContent = document.getElementById('previousSquadModalContent');
+const previousSquadModalTitle = document.getElementById('previousSquadModalTitle');
+const previousSquadPlayerList = document.getElementById('previousSquadPlayerList');
+const selectedPreviousSquadList = document.getElementById('selectedPreviousSquadList');
+const previousSquadSearch = document.getElementById('previousSquadSearch');
+const confirmPreviousSquadBtn = document.getElementById('confirmPreviousSquadBtn');
 
 // Retention Modal Elements
 const retentionModal = document.getElementById('retentionModal');
@@ -350,13 +349,17 @@ const selectedRetentionsList = document.getElementById('selectedRetentionsList')
 const retentionSearch = document.getElementById('retentionSearch');
 const confirmRetentionsBtn = document.getElementById('confirmRetentionsBtn');
 
+// RTM Modal Elements
+const rtmModal = document.getElementById('rtmModal');
+const rtmModalContent = document.getElementById('rtmModalContent');
+const rtmModalText = document.getElementById('rtmModalText');
+const rtmTimerEl = document.getElementById('rtmTimer');
+const rtmYesBtn = document.getElementById('rtmYesBtn');
+const rtmNoBtn = document.getElementById('rtmNoBtn');
+
 function formatPrice(lakhs) {
     if (lakhs >= 100) {
-        const crores = Math.floor(lakhs / 100);
-        const remainingLakhs = lakhs % 100;
-        if (remainingLakhs > 0) {
-            return `${crores}.${remainingLakhs.toString().padStart(2, '0')} Cr`;
-        }
+        const crores = (lakhs / 100).toFixed(2);
         return `${crores} Cr`;
     }
     return `${lakhs} L`;
@@ -371,10 +374,10 @@ function getBidIncrement(bidAmount) {
 
 function getCategoryIcon(category) {
     const icons = {
-         'Batsman': `<svg class="w-6 h-6 text-gray-300" style="transform: rotate(45deg);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 21h4v-9h-4v9zM10 12h4V8a2 2 0 10-4 0v4zM12 8V3"></path></svg>`,
-         'Fast Bowler': `<svg class="w-6 h-6 text-gray-300" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path stroke-linecap="round" d="M12 3a9 9 0 015.65 16.24" /><path stroke-linecap="round" d="M12 3a9 9 0 00-5.65 16.24" /></svg>`,
-         'Spinner': `<svg class="w-6 h-6 text-gray-300" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path stroke-linecap="round" d="M19.1 19.1A9 9 0 014.9 4.9" /></svg>`,
-         'Wicket Keeper': `<svg class="w-6 h-6 text-gray-300" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 9v10a2 2 0 01-2 2H8a2 2 0 01-2-2V9a6 6 0 1112 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 9A3 3 0 009 6v0a3 3 0 003-3v0a3 3 0 013 3v0a3 3 0 01-3 3z" /></svg>`,
+        'Batsman': `<svg class="w-6 h-6 text-gray-300" style="transform: rotate(45deg);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 21h4v-9h-4v9zM10 12h4V8a2 2 0 10-4 0v4zM12 8V3"></path></svg>`,
+        'Fast Bowler': `<svg class="w-6 h-6 text-gray-300" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path stroke-linecap="round" d="M12 3a9 9 0 015.65 16.24" /><path stroke-linecap="round" d="M12 3a9 9 0 00-5.65 16.24" /></svg>`,
+        'Spinner': `<svg class="w-6 h-6 text-gray-300" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path stroke-linecap="round" d="M19.1 19.1A9 9 0 014.9 4.9" /></svg>`,
+        'Wicket Keeper': `<svg class="w-6 h-6 text-gray-300" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 9v10a2 2 0 01-2 2H8a2 2 0 01-2-2V9a6 6 0 1112 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 9A3 3 0 009 6v0a3 3 0 003-3v0a3 3 0 013 3v0a3 3 0 01-3 3z" /></svg>`,
     };
     icons['Allrounder'] = `<div class="flex items-center space-x-1">${icons['Batsman'].replace('w-6 h-6', 'w-5 h-5')} ${icons['Fast Bowler'].replace('w-6 h-6', 'w-5 h-5')}</div>`;
 
@@ -558,8 +561,7 @@ function initializePlayers() {
 
     const pools = {};
     masterList.forEach((player, index) => {
-        // status: 'unsold' (yet to be auctioned), 'passed-over' (auctioned but no bids), 'sold'
-        const p = { ...player, id: index, status: 'unsold', soldTo: null, sellingPrice: 0 };
+        const p = { ...player, id: index, status: 'unsold', soldTo: null, sellingPrice: 0, previousTeamIndex: null };
         const key = `${p.category}-${p.basePrice}`;
         if (!pools[key]) {
             pools[key] = [];
@@ -568,7 +570,6 @@ function initializePlayers() {
     });
 
     appState.playerPools = pools;
-    // Define the order of the auction rounds
     appState.poolOrder = [
         'Batsman-200', 'Batsman-100', 'Batsman-40',
         'Wicket Keeper-200', 'Wicket Keeper-100', 'Wicket Keeper-40',
@@ -581,16 +582,19 @@ function initializePlayers() {
 function renderTeamDisplay(teamIndex) {
     const team = appState.teams[teamIndex];
     const displayEl = document.getElementById(`team${teamIndex + 1}Display`);
-    const colors = ['blue', 'red', 'yellow'];
+    const colors = ['cyan', 'orange', 'lime'];
     const colorClass = colors[teamIndex];
 
     let playersHtml = team.squad.map(p => `
         <div class="flex justify-between items-center bg-gray-700/50 p-2 rounded-md mb-2">
-            <div>
+            <div class="flex-1">
                 <p class="font-semibold text-sm">${p.name}</p>
                 <p class="text-xs text-gray-300">${p.category}</p>
             </div>
-            <p class="font-bold text-sm text-emerald-400">${formatPrice(p.sellingPrice)}</p>
+            <p class="font-bold text-sm text-fuchsia-400 mx-2">${formatPrice(p.sellingPrice)}</p>
+            <button class="release-player-btn text-red-500 hover:text-red-400 transition" data-team-index="${teamIndex}" data-player-id="${p.id}">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
         </div>
     `).join('');
     
@@ -600,11 +604,50 @@ function renderTeamDisplay(teamIndex) {
 
     displayEl.innerHTML = `
         <h2 class="text-2xl font-bold mb-1 text-center text-${colorClass}-400">${team.name}</h2>
-        <p class="text-center text-gray-300 mb-1 text-sm">Players: ${team.squad.length}/24 | Purse: <span class="font-bold text-white">${formatPrice(team.purse)}</span></p>
+        <p class="text-center text-gray-300 mb-1 text-sm">Players: ${team.squad.length}/${MAX_PLAYERS_PER_TEAM} | Purse: <span class="font-bold text-white">${formatPrice(team.purse)}</span> | RTM: <span class="font-bold text-white">${team.rtm}</span></p>
         <div class="h-px bg-gray-700/50 my-4"></div>
         <div class="space-y-2 h-80 overflow-y-auto pr-2">${playersHtml}</div>
     `;
     displayEl.classList.remove('hidden');
+
+    displayEl.querySelectorAll('.release-player-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const teamIdx = parseInt(btn.dataset.teamIndex);
+            const pId = parseInt(btn.dataset.playerId);
+            releasePlayer(teamIdx, pId);
+        });
+    });
+}
+
+function releasePlayer(teamIndex, playerId) {
+    const team = appState.teams[teamIndex];
+    const playerIndexInSquad = team.squad.findIndex(p => p.id === playerId);
+
+    if (playerIndexInSquad === -1) {
+        console.error("Player not found in squad.");
+        return;
+    }
+
+    const playerToRelease = team.squad[playerIndexInSquad];
+    
+    if (confirm(`Are you sure you want to release ${playerToRelease.name} from ${team.name}? The amount of ${formatPrice(playerToRelease.sellingPrice)} will be refunded.`)) {
+        const [releasedPlayer] = team.squad.splice(playerIndexInSquad, 1);
+        team.purse += releasedPlayer.sellingPrice;
+
+        const globalPlayer = Object.values(appState.playerPools).flat().find(p => p.id === playerId);
+        if (globalPlayer) {
+            globalPlayer.status = 'unsold';
+            globalPlayer.soldTo = null;
+            globalPlayer.sellingPrice = 0;
+            globalPlayer.previousTeamIndex = null;
+        }
+        
+        team.previousSquad = team.previousSquad.filter(p => p.id !== playerId);
+
+
+        updateAllTeamDisplays();
+        updateSoldPlayersTable();
+    }
 }
 
 function updateAllTeamDisplays() {
@@ -626,8 +669,105 @@ function startAuction() {
     appState.teams[2].name = team3Name;
     
     setupScreen.classList.add('hidden');
-    startRetentionPhase();
+    startPreviousSquadSelectionPhase();
 }
+
+// --- PREVIOUS SQUAD SELECTION ---
+function startPreviousSquadSelectionPhase() {
+    appState.currentPreviousSquadTeamIndex = 0;
+    setupPreviousSquadModalForTeam(appState.currentPreviousSquadTeamIndex);
+    showModal(previousSquadModal, previousSquadModalContent);
+}
+
+function setupPreviousSquadModalForTeam(teamIndex) {
+    appState.tempPreviousSquadPlayers = [];
+    previousSquadModalTitle.textContent = `Previous Squad Selection: ${appState.teams[teamIndex].name}`;
+
+    const pickedPlayerIds = appState.teams.flatMap(team => team.previousSquad.map(p => p.id));
+    
+    const allAvailablePlayers = Object.values(appState.playerPools).flat()
+        .filter(p => !pickedPlayerIds.includes(p.id))
+        .sort((a,b) => a.name.localeCompare(b.name));
+
+    previousSquadPlayerList.innerHTML = allAvailablePlayers.map(p => `
+        <div class="player-selectable bg-gray-900/50 p-2 rounded-md text-center flex flex-col items-center justify-between h-24 border-2 border-transparent cursor-pointer transition" data-player-id="${p.id}">
+            <p class="font-semibold text-xs text-white leading-tight">${p.name}</p>
+            <div class="mt-1">${getCategoryIcon(p.category)}</div>
+            <p class="text-xs text-gray-400 mt-1">${p.country}</p>
+        </div>
+    `).join('');
+
+    document.querySelectorAll('#previousSquadPlayerList .player-selectable').forEach(el => {
+        el.addEventListener('click', () => togglePreviousSquadSelection(el.dataset.playerId));
+    });
+
+    previousSquadSearch.value = '';
+    previousSquadSearch.dispatchEvent(new Event('input'));
+    updateSelectedPreviousSquadList();
+}
+
+function togglePreviousSquadSelection(playerId) {
+    const playerIdNum = parseInt(playerId);
+    const playerIndex = appState.tempPreviousSquadPlayers.findIndex(p => p.id === playerIdNum);
+    const allPlayers = Object.values(appState.playerPools).flat();
+
+    if (playerIndex > -1) {
+        appState.tempPreviousSquadPlayers.splice(playerIndex, 1);
+    } else {
+        const player = allPlayers.find(p => p.id === playerIdNum);
+        appState.tempPreviousSquadPlayers.push(player);
+    }
+
+    document.querySelectorAll('#previousSquadPlayerList .player-selectable').forEach(el => {
+        const pId = parseInt(el.dataset.playerId);
+        const isSelected = appState.tempPreviousSquadPlayers.some(p => p.id === pId);
+        el.classList.toggle('selected', isSelected);
+    });
+    updateSelectedPreviousSquadList();
+}
+
+function updateSelectedPreviousSquadList() {
+    selectedPreviousSquadList.innerHTML = '';
+    
+    if (appState.tempPreviousSquadPlayers.length === 0) {
+        selectedPreviousSquadList.innerHTML = `<p class="text-center text-gray-400 italic mt-16">Select your former players.</p>`;
+    } else {
+        selectedPreviousSquadList.innerHTML = `<p class="text-center text-gray-300 mb-2 font-semibold">Selected: ${appState.tempPreviousSquadPlayers.length}</p>`;
+    }
+
+    appState.tempPreviousSquadPlayers.sort((a,b) => a.name.localeCompare(b.name)).forEach(player => {
+        const playerEl = document.createElement('div');
+        playerEl.className = 'bg-fuchsia-800/50 p-3 rounded-lg flex items-center justify-between border border-fuchsia-600';
+        playerEl.innerHTML = `
+            <div>
+                <p class="font-bold text-white text-sm">${player.name}</p>
+                <p class="text-xs text-fuchsia-300">${player.category}</p>
+            </div>
+            <button class="remove-previous-squad-btn text-red-400 hover:text-red-300" data-player-id="${player.id}">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        `;
+        selectedPreviousSquadList.appendChild(playerEl);
+    });
+    
+    document.querySelectorAll('.remove-previous-squad-btn').forEach(btn => {
+        btn.addEventListener('click', () => togglePreviousSquadSelection(btn.dataset.playerId));
+    });
+}
+
+function confirmPreviousSquadSelections() {
+    const team = appState.teams[appState.currentPreviousSquadTeamIndex];
+    team.previousSquad = [...appState.tempPreviousSquadPlayers];
+
+    appState.currentPreviousSquadTeamIndex++;
+    if (appState.currentPreviousSquadTeamIndex < appState.teams.length) {
+        setupPreviousSquadModalForTeam(appState.currentPreviousSquadTeamIndex);
+    } else {
+        hideModal(previousSquadModal, previousSquadModalContent);
+        startRetentionPhase();
+    }
+}
+
 
 // --- RETENTION PHASE FUNCTIONS ---
 
@@ -641,17 +781,15 @@ function setupRetentionModalForTeam(teamIndex) {
     appState.tempRetainedPlayers = [];
     retentionModalTitle.textContent = `Retention Phase: ${appState.teams[teamIndex].name}`;
     
-    const allAvailablePlayers = Object.values(appState.playerPools).flat()
-        .filter(p => p.status === 'unsold')
-        .sort((a,b) => a.name.localeCompare(b.name));
+    const playersForRetention = appState.teams[teamIndex].previousSquad.sort((a,b) => a.name.localeCompare(b.name));
 
-    retentionPlayerList.innerHTML = allAvailablePlayers.map(p => `
+    retentionPlayerList.innerHTML = playersForRetention.map(p => `
         <div class="player-retainable bg-gray-900/50 p-2 rounded-md text-center flex flex-col items-center justify-between h-24 border-2 border-transparent cursor-pointer transition" data-player-id="${p.id}">
             <p class="font-semibold text-xs text-white leading-tight">${p.name}</p>
             <div class="mt-1">${getCategoryIcon(p.category)}</div>
             <p class="text-xs text-gray-400 mt-1">${p.country}</p>
         </div>
-    `).join('');
+    `).join('') || `<p class="col-span-full text-center text-gray-400">No players were selected in your Previous Squad.</p>`;
 
     document.querySelectorAll('.player-retainable').forEach(el => {
         el.addEventListener('click', () => toggleRetentionSelection(el.dataset.playerId));
@@ -667,16 +805,11 @@ function toggleRetentionSelection(playerId) {
     const playerIndex = appState.tempRetainedPlayers.findIndex(p => p.id === playerIdNum);
 
     if (playerIndex > -1) {
-        // Deselect player
         appState.tempRetainedPlayers.splice(playerIndex, 1);
     } else {
-        // Select player
-        if (appState.tempRetainedPlayers.length >= 5) {
-            // Show a message or just ignore
-            return;
-        }
-        const allPlayers = Object.values(appState.playerPools).flat();
-        const player = allPlayers.find(p => p.id === playerIdNum);
+        if (appState.tempRetainedPlayers.length >= 5) { return; }
+        const teamPreviousSquad = appState.teams[appState.currentRetentionTeamIndex].previousSquad;
+        const player = teamPreviousSquad.find(p => p.id === playerIdNum);
         appState.tempRetainedPlayers.push(player);
     }
     
@@ -695,17 +828,17 @@ function updateSelectedRetentionsList() {
     selectedRetentionsList.innerHTML = '';
     
     if (appState.tempRetainedPlayers.length === 0) {
-        selectedRetentionsList.innerHTML = '<p class="text-center text-gray-400 italic mt-16">Select players from the list to retain them.</p>';
+        selectedRetentionsList.innerHTML = '<p class="text-center text-gray-400 italic mt-16">Select up to 5 players to retain.</p>';
     }
 
-    appState.tempRetainedPlayers.forEach((player, index) => {
+    appState.tempRetainedPlayers.sort((a,b) => a.name.localeCompare(b.name)).forEach((player, index) => {
         const cost = retentionCosts[index];
         const playerEl = document.createElement('div');
-        playerEl.className = 'bg-emerald-800/50 p-3 rounded-lg flex items-center justify-between border border-emerald-600';
+        playerEl.className = 'bg-fuchsia-800/50 p-3 rounded-lg flex items-center justify-between border border-fuchsia-600';
         playerEl.innerHTML = `
             <div>
                 <p class="font-bold text-white">${player.name}</p>
-                <p class="text-sm text-emerald-300">Cost: ${formatPrice(cost)}</p>
+                <p class="text-sm text-fuchsia-300">Cost: ${formatPrice(cost)}</p>
             </div>
             <button class="remove-retention-btn text-red-400 hover:text-red-300" data-player-id="${player.id}">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
@@ -725,15 +858,15 @@ function confirmRetentions() {
     
     appState.tempRetainedPlayers.forEach((player, index) => {
         const cost = retentionCosts[index];
-        player.status = 'retained';
-        player.soldTo = team.name;
-        player.sellingPrice = cost;
-        team.squad.push(player);
-        team.purse -= cost;
-
-        // Remove from auction pool
-        const key = `${player.category}-${player.basePrice}`;
-        appState.playerPools[key] = appState.playerPools[key].filter(p => p.id !== player.id);
+        const globalPlayer = Object.values(appState.playerPools).flat().find(p => p.id === player.id);
+        
+        if (globalPlayer) {
+            globalPlayer.status = 'retained';
+            globalPlayer.soldTo = team.name;
+            globalPlayer.sellingPrice = cost;
+            team.squad.push(globalPlayer);
+            team.purse -= cost;
+        }
     });
 
     appState.currentRetentionTeamIndex++;
@@ -741,15 +874,39 @@ function confirmRetentions() {
         setupRetentionModalForTeam(appState.currentRetentionTeamIndex);
     } else {
         hideModal(retentionModal, retentionModalContent);
-        document.getElementById('bidTeam1').innerHTML = `<span>BID</span><span class="text-xs font-normal">${appState.teams[0].name}</span>`;
-        document.getElementById('bidTeam2').innerHTML = `<span>BID</span><span class="text-xs font-normal">${appState.teams[1].name}</span>`;
-        document.getElementById('bidTeam3').innerHTML = `<span>BID</span><span class="text-xs font-normal">${appState.teams[2].name}</span>`;
-        appState.auctionStarted = true;
-        updateAllTeamDisplays();
-        showNextPoolModal();
+        finalizePreAuctionAndStart();
     }
 }
 
+function finalizePreAuctionAndStart() {
+    // Tag players from each team's previous squad as RTM-eligible if they weren't retained
+    appState.teams.forEach((team, teamIndex) => {
+        const retainedIds = team.squad.map(p => p.id);
+        team.previousSquad.forEach(squadPlayer => {
+            if (!retainedIds.includes(squadPlayer.id)) {
+                const globalPlayer = Object.values(appState.playerPools).flat().find(p => p.id === squadPlayer.id);
+                if (globalPlayer) {
+                    globalPlayer.previousTeamIndex = teamIndex;
+                }
+            }
+        });
+    });
+
+    // Remove all retained players from the main auction pool
+    const allRetainedIds = appState.teams.flatMap(t => t.squad.map(p => p.id));
+    for (const poolKey in appState.playerPools) {
+        appState.playerPools[poolKey] = appState.playerPools[poolKey].filter(p => !allRetainedIds.includes(p.id));
+    }
+
+
+    // Now, start the auction proper
+    document.getElementById('bidTeam1').innerHTML = `<span>BID</span><span class="text-xs font-normal">${appState.teams[0].name}</span>`;
+    document.getElementById('bidTeam2').innerHTML = `<span>BID</span><span class="text-xs font-normal">${appState.teams[1].name}</span>`;
+    document.getElementById('bidTeam3').innerHTML = `<span>BID</span><span class="text-xs font-normal">${appState.teams[2].name}</span>`;
+    appState.auctionStarted = true;
+    updateAllTeamDisplays();
+    showNextPoolModal();
+}
 
 // --- REGULAR AUCTION FUNCTIONS ---
 
@@ -769,9 +926,15 @@ function showNextPoolModal() {
     } else {
         appState.currentPoolIndex++;
     }
+    
+    while(appState.currentPoolIndex < appState.poolOrder.length && (!appState.playerPools[appState.poolOrder[appState.currentPoolIndex]] || appState.playerPools[appState.poolOrder[appState.currentPoolIndex]].length === 0)) {
+        appState.currentPoolIndex++;
+    }
 
     if (appState.currentPoolIndex >= appState.poolOrder.length) {
-        const passedOverPlayers = Object.values(appState.playerPools).flat().filter(p => p.status === 'passed-over');
+        const allPlayers = Object.values(appState.playerPools).flat();
+        const passedOverPlayers = allPlayers.filter(p => p.status === 'passed-over' || (p.status === 'unsold' && p.previousTeamIndex !== null));
+
         if (passedOverPlayers.length > 0) {
             poolModalTitle.textContent = 'Final Unsold Round';
             poolModalPlayerList.innerHTML = `<p class="text-center col-span-full">All regular rounds are complete. You can now auction the remaining unsold players.</p>`;
@@ -817,16 +980,12 @@ function startRound() {
 
 function startUnsoldRound() {
     appState.isUnsoldRound = true;
-    const passedOverPlayers = Object.values(appState.playerPools).flat().filter(p => p.status === 'passed-over');
-    passedOverPlayers.forEach(p => { p.status = 'unsold'; }); // Reset status for re-auction
+    const allPlayers = Object.values(appState.playerPools).flat();
+    const passedOverPlayers = allPlayers.filter(p => p.status === 'passed-over' || (p.status === 'unsold' && p.previousTeamIndex !== null));
+
+    passedOverPlayers.forEach(p => { p.status = 'unsold'; });
     appState.currentUnsoldRoundPlayers = passedOverPlayers.sort(() => Math.random() - 0.5);
     
-    poolModalTitle.textContent = `Unsold Players Round`;
-    poolModalPlayerList.innerHTML = appState.currentUnsoldRoundPlayers.map(p => `<div class="bg-gray-700/50 p-2 rounded-md text-center">
-        <p class="font-semibold text-sm text-white">${p.name}</p>
-        <p class="text-xs text-gray-300">${p.country}</p>
-    </div>`).join('');
-
     hideModal(poolModal, poolModalContent);
     auctionScreen.classList.remove('hidden');
     appState.currentPlayerIndex = -1;
@@ -843,9 +1002,34 @@ function displayPlayer(player) {
     document.querySelectorAll('.team-card').forEach(card => card.classList.remove('highest-bidder-team-card'));
 }
 
+function clearRtmTimer() {
+    clearInterval(appState.rtmTimerId);
+    appState.rtmTimerId = null;
+}
+
+function startRtmTimer() {
+    clearRtmTimer();
+    appState.rtmTimeLeft = 5;
+    rtmTimerEl.textContent = appState.rtmTimeLeft;
+    rtmTimerEl.classList.remove('text-red-500');
+
+    appState.rtmTimerId = setInterval(() => {
+        appState.rtmTimeLeft--;
+        rtmTimerEl.textContent = appState.rtmTimeLeft;
+        if (appState.rtmTimeLeft <= 2) {
+            rtmTimerEl.classList.add('text-red-500');
+        }
+        if (appState.rtmTimeLeft <= 0) {
+            clearRtmTimer();
+            rtmNoBtn.click();
+        }
+    }, 1000);
+}
+
+
 function resetTimer() {
     clearInterval(appState.timerId);
-    appState.timeLeft = 40;
+    appState.timeLeft = 60;
     timerDisplay.textContent = appState.timeLeft;
     timerRing.style.strokeDasharray = `${ringCircumference} ${ringCircumference}`;
     timerRing.style.strokeDashoffset = 0;
@@ -856,11 +1040,10 @@ function startTimer() {
     appState.timerId = setInterval(() => {
         appState.timeLeft--;
         timerDisplay.textContent = appState.timeLeft;
-        const offset = ringCircumference - (appState.timeLeft / 40) * ringCircumference;
+        const offset = ringCircumference - (appState.timeLeft / 60) * ringCircumference;
         timerRing.style.strokeDashoffset = offset;
 
         if (appState.timeLeft <= 0) {
-            clearInterval(appState.timerId);
             sellPlayer();
         }
     }, 1000);
@@ -868,13 +1051,13 @@ function startTimer() {
 
 function placeBid(teamIndex) {
     const team = appState.teams[teamIndex];
-    if (team.squad.length >= 24) {
-        messageBox.innerHTML = `<p class="text-sm font-bold text-red-400">${team.name} has a full squad!</p>`;
+    if (team.squad.length >= MAX_PLAYERS_PER_TEAM) {
+        messageBox.innerHTML = `<p class="text-sm font-bold text-orange-400">${team.name} has a full squad!</p>`;
         return;
     }
 
     if (teamIndex === appState.highestBidder) {
-        messageBox.innerHTML = `<p class="text-sm font-bold text-yellow-400">You are already the highest bidder!</p>`;
+        messageBox.innerHTML = `<p class="text-sm font-bold text-lime-400">You are already the highest bidder!</p>`;
         return;
     }
 
@@ -883,7 +1066,7 @@ function placeBid(teamIndex) {
     const nextBid = isFirstBid ? appState.currentBid : appState.currentBid + increment;
 
     if (team.purse < nextBid) {
-        messageBox.innerHTML = `<p class="text-sm font-bold text-red-400">Insufficient funds for ${team.name}!</p>`;
+        messageBox.innerHTML = `<p class="text-sm font-bold text-orange-400">Insufficient funds for ${team.name}!</p>`;
         return;
     }
 
@@ -906,21 +1089,56 @@ function getCurrentPlayer() {
         return appState.currentUnsoldRoundPlayers[appState.currentPlayerIndex];
     }
     const currentPoolKey = appState.poolOrder[appState.currentPoolIndex];
-    return appState.playerPools[currentPoolKey][appState.currentPlayerIndex];
+    if (appState.playerPools[currentPoolKey]) {
+        return appState.playerPools[currentPoolKey][appState.currentPlayerIndex];
+    }
+    return undefined;
+}
+
+function finalizeSale(player, winningTeamIndex, bidAmount) {
+    const winningTeam = appState.teams[winningTeamIndex];
+    player.status = 'sold';
+    player.soldTo = winningTeam.name;
+    player.sellingPrice = bidAmount;
+    winningTeam.squad.push(player);
+    winningTeam.purse -= bidAmount;
+    messageBox.innerHTML = `<h3 class="text-2xl font-bold text-fuchsia-400 animate-pulse">SOLD to ${winningTeam.name} for ${formatPrice(bidAmount)}!</h3>`;
+    updateAllTeamDisplays();
+    updateSoldPlayersTable();
 }
 
 function sellPlayer() {
+    clearInterval(appState.timerId);
     const player = getCurrentPlayer();
+    
+    if (!player) {
+        nextPlayer();
+        return;
+    }
+
     if (appState.highestBidder !== null) {
-        const winningTeam = appState.teams[appState.highestBidder];
-        player.status = 'sold';
-        player.soldTo = winningTeam.name;
-        player.sellingPrice = appState.currentBid;
-        winningTeam.squad.push(player);
-        winningTeam.purse -= player.sellingPrice;
-        messageBox.innerHTML = `<h3 class="text-2xl font-bold text-emerald-400 animate-pulse">SOLD to ${winningTeam.name} for ${formatPrice(appState.currentBid)}!</h3>`;
-        updateAllTeamDisplays();
-        updateSoldPlayersTable();
+        const winningTeamIndex = appState.highestBidder;
+        const rtmTeamIndex = player.previousTeamIndex;
+        
+        if (rtmTeamIndex !== null) {
+            const rtmTeam = appState.teams[rtmTeamIndex];
+            if (rtmTeam) {
+                const canRtm = rtmTeamIndex !== winningTeamIndex &&
+                            rtmTeam.rtm > 0 &&
+                            rtmTeam.purse >= appState.currentBid &&
+                            rtmTeam.squad.length < MAX_PLAYERS_PER_TEAM;
+
+                if (canRtm) {
+                    appState.rtmContext = { player, winningTeamIndex, bidAmount: appState.currentBid };
+                    rtmModalText.innerHTML = `<strong>${appState.teams[winningTeamIndex].name}</strong> wins the bid.<br><br>Does <strong>${rtmTeam.name}</strong> want to use RTM for <strong class="text-yellow-400">${formatPrice(appState.currentBid)}</strong>?`;
+                    showModal(rtmModal, rtmModalContent);
+                    startRtmTimer();
+                    return;
+                }
+            }
+        }
+        finalizeSale(player, winningTeamIndex, appState.currentBid);
+
     } else {
         player.status = 'passed-over';
         messageBox.innerHTML = `<h3 class="text-2xl font-bold text-gray-400">UNSOLD</h3>`;
@@ -945,7 +1163,7 @@ function nextPlayer() {
         ? appState.currentUnsoldRoundPlayers 
         : appState.playerPools[appState.poolOrder[appState.currentPoolIndex]];
 
-    if (appState.currentPlayerIndex >= currentPool.length) {
+    if (!currentPool || appState.currentPlayerIndex >= currentPool.length) {
         showNextPoolModal();
         return;
     }
@@ -959,7 +1177,7 @@ function nextPlayer() {
 
     bidButtons.forEach(btn => {
         const teamIndex = parseInt(btn.dataset.team);
-        btn.disabled = appState.teams[teamIndex].squad.length >= 24;
+        btn.disabled = appState.teams[teamIndex].squad.length >= MAX_PLAYERS_PER_TEAM;
     });
     nextPlayerBtn.classList.add('hidden');
     manualSellBtn.classList.add('hidden');
@@ -967,68 +1185,25 @@ function nextPlayer() {
 }
 
 function updateSoldPlayersTable() {
-    const soldPlayers = Object.values(appState.playerPools).flat()
-        .filter(p => p.status === 'sold' || p.status === 'retained').sort((a, b) => b.sellingPrice - a.sellingPrice);
+    const allPlayers = [];
+    appState.teams.forEach(team => {
+        team.squad.forEach(player => {
+            if (!allPlayers.some(p => p.id === player.id)) {
+                allPlayers.push(player);
+            }
+        });
+    });
+
+    const soldPlayers = allPlayers.filter(p => p.status === 'sold' || p.status === 'retained').sort((a, b) => b.sellingPrice - a.sellingPrice);
+        
     soldPlayersLog.innerHTML = soldPlayers.map(p => `
         <tr class="bg-gray-800 border-b border-gray-700">
-            <th scope="row" class="px-6 py-3 font-medium text-white whitespace-nowrap">${p.name} <span class="text-xs ${p.status === 'retained' ? 'text-yellow-400' : ''}">${p.status === 'retained' ? '(R)' : ''}</span></th>
+            <th scope="row" class="px-6 py-3 font-medium text-white whitespace-nowrap">${p.name} <span class="text-xs ${p.status === 'retained' ? 'text-lime-400' : ''}">${p.status === 'retained' ? '(R)' : ''}</span></th>
             <td class="px-6 py-3">${p.category}</td>
             <td class="px-6 py-3">${p.soldTo}</td>
-            <td class="px-6 py-3 text-right font-bold text-emerald-400">${formatPrice(p.sellingPrice)}</td>
+            <td class="px-6 py-3 text-right font-bold text-fuchsia-400">${formatPrice(p.sellingPrice)}</td>
         </tr>
     `).join('');
-}
-
-function populateRemainingPlayersModal() {
-    const remaining = Object.values(appState.playerPools).flat()
-        .filter(p => p.status === 'unsold');
-    
-    const groupedByCategory = remaining.reduce((acc, player) => {
-        if (!acc[player.category]) { acc[player.category] = []; }
-        acc[player.category].push(player);
-        return acc;
-    }, {});
-
-    remainingPlayersList.innerHTML = Object.keys(groupedByCategory).sort().map(category => `
-        <div>
-            <h3 class="text-xl font-bold text-emerald-400 mb-2">${category}s</h3>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-                ${groupedByCategory[category].map(p => `
-                    <div class="bg-gray-700/50 p-2 rounded text-center flex flex-col items-center justify-between h-24">
-                        <p class="font-semibold text-sm leading-tight">${p.name}</p>
-                        <div class="mt-1">${getCategoryIcon(p.category)}</div>
-                        <p class="text-xs text-gray-400 mt-1">${p.country} - ${formatPrice(p.basePrice)}</p>
-                    </div>
-                `).join('')}
-            </div>
-        </div>
-    `).join('') || `<p class="text-center text-gray-400">No players remaining.</p>`;
-}
-
-function populateUnsoldPlayersModal() {
-    const passedOver = Object.values(appState.playerPools).flat()
-        .filter(p => p.status === 'passed-over');
-    
-    const groupedByCategory = passedOver.reduce((acc, player) => {
-        if (!acc[player.category]) { acc[player.category] = []; }
-        acc[player.category].push(player);
-        return acc;
-    }, {});
-
-    unsoldPlayersList.innerHTML = Object.keys(groupedByCategory).sort().map(category => `
-        <div>
-            <h3 class="text-xl font-bold text-yellow-400 mb-2">${category}s</h3>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-                ${groupedByCategory[category].map(p => `
-                    <div class="bg-gray-700/50 p-2 rounded text-center flex flex-col items-center justify-between h-24">
-                        <p class="font-semibold text-sm leading-tight">${p.name}</p>
-                        <div class="mt-1">${getCategoryIcon(p.category)}</div>
-                        <p class="text-xs text-gray-400 mt-1">${p.country} - ${formatPrice(p.basePrice)}</p>
-                    </div>
-                `).join('')}
-            </div>
-        </div>
-    `).join('') || `<p class="text-center text-gray-400">No unsold players yet.</p>`;
 }
 
 
@@ -1039,10 +1214,10 @@ function endAuction() {
 
     const finalSquadsContainer = document.getElementById('finalSquads');
     finalSquadsContainer.innerHTML = appState.teams.map(team => {
-        const playersHtml = team.squad.map(p => `
+        const playersHtml = team.squad.sort((a,b) => b.sellingPrice - a.sellingPrice).map(p => `
             <div class="flex justify-between items-center bg-gray-600/50 p-2 rounded">
-                <p class="font-medium text-sm">${p.name} <span class="text-xs ${p.status === 'retained' ? 'text-yellow-400' : ''}">${p.status === 'retained' ? '(R)' : ''}</span></p>
-                <p class="font-bold text-emerald-300 text-sm">${formatPrice(p.sellingPrice)}</p>
+                <p class="font-medium text-sm">${p.name} <span class="text-xs ${p.status === 'retained' ? 'text-lime-400' : ''}">${p.status === 'retained' ? '(R)' : ''}</span></p>
+                <p class="font-bold text-fuchsia-300 text-sm">${formatPrice(p.sellingPrice)}</p>
             </div>
         `).join('');
         
@@ -1051,16 +1226,16 @@ function endAuction() {
             ? `<span class="text-green-400">(Squad Complete)</span>`
             : `<span class="text-red-400">(Squad Incomplete: ${team.squad.length}/15)</span>`;
         
-        const totalSpent = 10000 - team.purse;
+        const totalSpent = 12000 - team.purse;
 
         return `
             <div class="glass-effect p-4 rounded-lg">
                 <h3 class="text-xl font-bold mb-3">${team.name}</h3>
                 <p class="text-sm text-gray-300 mb-3">Total Players: ${team.squad.length} ${statusText}</p>
-                <div class="space-y-2 max-h-64 overflow-y-auto pr-2 mb-3">${playersHtml || '<p class="italic text-gray-400">No players.</p>'}</div>
+                <div class="space-y-2 max-h-96 overflow-y-auto pr-2 mb-3">${playersHtml || '<p class="italic text-gray-400">No players.</p>'}</div>
                 <div class="h-px bg-gray-600/50 my-3"></div>
                 <div class="text-sm space-y-2 text-gray-300">
-                    <div class="flex justify-between"><span>Total Spent:</span><span class="font-bold text-red-400">${formatPrice(totalSpent)}</span></div>
+                    <div class="flex justify-between"><span>Total Spent:</span><span class="font-bold text-orange-400">${formatPrice(totalSpent)}</span></div>
                     <div class="flex justify-between"><span>Purse Remaining:</span><span class="font-bold text-green-400">${formatPrice(team.purse)}</span></div>
                 </div>
             </div>
@@ -1076,7 +1251,6 @@ window.onload = function() {
     nextPlayerBtn.addEventListener('click', nextPlayer);
     manualSellBtn.addEventListener('click', () => {
         if (appState.highestBidder !== null) {
-            clearInterval(appState.timerId);
             sellPlayer();
         }
     });
@@ -1088,17 +1262,15 @@ window.onload = function() {
     showLogBtn.addEventListener('click', () => showModal(logModal, logModalContent));
     closeLogBtn.addEventListener('click', () => hideModal(logModal, logModalContent));
     
-    showRemainingBtn.addEventListener('click', () => {
-        populateRemainingPlayersModal();
-        showModal(remainingModal, remainingModalContent);
+    // Previous Squad Listeners
+    confirmPreviousSquadBtn.addEventListener('click', confirmPreviousSquadSelections);
+    previousSquadSearch.addEventListener('input', (e) => {
+        const searchTerm = e.target.value.toLowerCase();
+        document.querySelectorAll('#previousSquadPlayerList .player-selectable').forEach(el => {
+            const playerName = el.querySelector('p').textContent.toLowerCase();
+            el.style.display = playerName.includes(searchTerm) ? 'flex' : 'none';
+        });
     });
-    closeRemainingBtn.addEventListener('click', () => hideModal(remainingModal, remainingModalContent));
-
-    showUnsoldBtn.addEventListener('click', () => {
-        populateUnsoldPlayersModal();
-        showModal(unsoldModal, unsoldModalContent);
-    });
-    closeUnsoldBtn.addEventListener('click', () => hideModal(unsoldModal, unsoldModalContent));
 
     // Retention Listeners
     confirmRetentionsBtn.addEventListener('click', confirmRetentions);
@@ -1106,17 +1278,49 @@ window.onload = function() {
         const searchTerm = e.target.value.toLowerCase();
         document.querySelectorAll('.player-retainable').forEach(el => {
             const playerName = el.querySelector('p').textContent.toLowerCase();
-            if (playerName.includes(searchTerm)) {
-                el.style.display = 'flex';
-            } else {
-                el.style.display = 'none';
-            }
+            el.style.display = playerName.includes(searchTerm) ? 'flex' : 'none';
         });
     });
 
-    initializePlayers();
-    
+    // RTM Auction Listeners
+    rtmYesBtn.addEventListener('click', () => {
+        clearRtmTimer();
+        const { player, bidAmount } = appState.rtmContext;
+        const rtmTeamIndex = player.previousTeamIndex;
+        const rtmTeam = appState.teams[rtmTeamIndex];
 
+        rtmTeam.rtm--; 
+        finalizeSale(player, rtmTeamIndex, bidAmount); 
+
+        hideModal(rtmModal, rtmModalContent);
+        appState.rtmContext = null;
+
+        bidButtons.forEach(btn => btn.disabled = true);
+        manualSellBtn.classList.add('hidden');
+        unsoldBtn.classList.add('hidden');
+        nextPlayerBtn.classList.remove('hidden');
+        nextPlayerBtn.classList.add('col-span-2');
+    });
+
+    rtmNoBtn.addEventListener('click', () => {
+        clearRtmTimer();
+        if (!appState.rtmContext) return; 
+
+        const { player, winningTeamIndex, bidAmount } = appState.rtmContext;
+        
+        finalizeSale(player, winningTeamIndex, bidAmount); 
+
+        hideModal(rtmModal, rtmModalContent);
+        appState.rtmContext = null;
+
+        bidButtons.forEach(btn => btn.disabled = true);
+        manualSellBtn.classList.add('hidden');
+        unsoldBtn.classList.add('hidden');
+        nextPlayerBtn.classList.remove('hidden');
+        nextPlayerBtn.classList.add('col-span-2');
+    });
+
+    initializePlayers();
 };
 </script>
 </body>
